@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>NBA Team Comparison</title>
+</head>
+<body>
+    <h1>NBA Team Comparison</h1>
+    <form action="/compare" method="post">
+        <label for="team1">Team 1:</label>
+        <select id="team1" name="team1">
+            <% // チームの選択肢を配列で定義 %>
+            <% const teams = [
+                {id: '1610612737', name: 'Atlanta Hawks'},
+                {id: '1610612738', name: 'Boston Celtics'},
+                {id: '1610612751', name: 'Brooklyn Nets'}
+            ]; %>
+            <% // 配列をループして選択肢を表示 %>
+            <% teams.forEach(team => { %>
+                <option value="<%= team.id %>"><%= team.name %></option>
+            <% }); %>
+        </select>
+        <label for="team2">Team 2:</label>
+        <select id="team2" name="team2">
+            <% // 同じく配列をループして選択肢を表示 %>
+            <% teams.forEach(team => { %>
+                <option value="<%= team.id %>"><%= team.name %></option>
+            <% }); %>
+        </select>
+        <input type="submit" value="Compare">
+    </form>
+</body>
+</html>
